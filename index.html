@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Not Cumple de Cami 🎉</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Fono oscuro principal */
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(192, 132, 252, 0.6), 0 0 20px rgba(192, 132, 252, 0.4);
+        }
+        .bg-gradient-purple-dark {
+            background: linear-gradient(180deg, rgba(147, 51, 234, 0.1) 0%, rgba(17, 24, 39, 0) 100%);
+        }
+        .nav-item {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c084fc;
+            transition: width 0.3s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #c084fc;
+        }
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        .card {
+            background-color: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(167, 139, 250, 0.1);
+        }
+        .icon-bg {
+            background-color: rgba(167, 139, 250, 0.1);
+            color: #d8b4fe;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Canvas para el confeti -->
+    <canvas id="confetti-canvas" class="fixed top-0 left-0 w-full h-full z-50 pointer-events-none"></canvas>
+
+    <!-- Header y Navegación -->
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Cami's <span class="text-purple-400">Not Cumple</span></a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#mision" class="nav-item">La Misión</a>
+                <a href="#vibe" class="nav-item">El Vibe</a>
+                <a href="#sabores" class="nav-item">Sabores</a>
+                <a href="#juegos" class="nav-item">¡A Jugar!</a>
+            </nav>
+            <a href="https://wa.me/?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="hidden md:inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 hover:scale-105">
+                Confirmar Asistencia
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#mision" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">La Misión</a>
+            <a href="#vibe" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">El Vibe</a>
+            <a href="#sabores" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">Sabores</a>
+            <a href="#juegos" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">¡A Jugar!</a>
+            <a href="https://wa.me/?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="block text-center bg-purple-600 text-white font-bold py-3 mt-2">
+                Confirmar Asistencia
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <main class="pt-20">
+        <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+            <div class="absolute inset-0 bg-gray-900 opacity-50 z-10"></div>
+            <div class="absolute inset-0 z-0">
+                 <!-- Imagen de fondo temática. Placeholder de un artista K-Pop. Reemplazar si se desea. -->
+                <img src="https://placehold.co/1920x1080/111827/333333?text=K-POP+VIBE" alt="Fondo K-Pop" class="w-full h-full object-cover object-center animate-pulse-slow">
+            </div>
+            <div class="relative z-20 container mx-auto px-6">
+                <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-wider text-glow">
+                    El <span class="text-purple-400">Not Cumple</span> de Cami
+                </h1>
+                <p class="mt-4 text-lg md:text-2xl text-gray-300 font-light">
+                    Misma increíble celebración, <span class="font-semibold text-white">Not</span> en la fecha exacta. <span class="italic text-purple-300">Why Not?</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección La Misión -->
+        <section id="mision" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-white mb-12">La Misión</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="card p-8 rounded-2xl">
+                        <div class="icon-bg w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Fecha y Hora</h3>
+                        <p class="text-purple-300 font-bold">Sábado, 12 de Julio</p>
+                        <p>A partir de las 4:00 PM</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="icon-bg w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Ubicación</h3>
+                        <p class="text-purple-300 font-bold">Terraza - Juan de Aliaga 559</p>
+                        <p>Magdalena del Mar</p>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="icon-bg w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Dress Code</h3>
+                        <p class="text-purple-300 font-bold">K-Pop Vibe</p>
+                        <p>Negro, Morado y Plateado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección El Vibe -->
+        <section id="vibe" class="py-20 bg-gradient-purple-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-white mb-4">El Vibe</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-400 mb-12">
+                    Un ambiente moderno y chic inspirado en Seúl. Tendremos un photobooth con una gigantografía de Jungkook de BTS y una playlist con los mejores himnos del K-Pop para marcar el ritmo.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección Sabores -->
+        <section id="sabores" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-white mb-12">Sabores</h2>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Parrilla Fusión</h3>
+                        <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                            <li>Selectos cortes de carne</li>
+                            <li>Papas nativas doradas</li>
+                            <li>Ensalada fresca de estación</li>
+                            <li>Panchos para los jóvenes</li>
+                        </ul>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Estación Coreana</h3>
+                         <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                            <li>Gimbap y Maki Coreano</li>
+                            <li>Onigiri con rellenos sorpresa</li>
+                            <li>Brochetas de Tteok agridulce</li>
+                            <li>Papas y snacks importados</li>
+                        </ul>
+                    </div>
+                    <div class="card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Barra de Bebidas</h3>
+                         <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                            <li>Leche de fresa y plátano</li>
+                            <li>Vino, Gin y Tacna Sour (Adultos)</li>
+                            <li>Refrescos y gaseosas</li>
+                            <li>Soju opcional (Adultos)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Juegos -->
+        <section id="juegos" class="py-20 bg-gray-900">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-white mb-12">¡A Jugar!</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
+                    <div class="card p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-purple-300 mb-3">Juegos de Mesa</h3>
+                        <p class="text-sm">Lotería (Sarita)</p>
+                        <p class="text-sm">Dixit y Uno (Cami)</p>
+                        <p class="text-sm">Serpientes y Escaleras (Sarita)</p>
+                        <p class="text-sm">¡Y un juego sorpresa de Cami!</p>
+                    </div>
+                     <div class="card p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-purple-300 mb-3">Desafíos Coreanos</h3>
+                        <p class="text-sm"><strong>Ddakji:</strong> El adictivo duelo de voltear papeles.</p>
+                        <p class="text-sm"><strong>Tuho:</strong> Demuestra tu puntería lanzando flechas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-2xl font-bold text-white">¡Te esperamos para celebrar a Cami!</p>
+            <p class="text-purple-400 mt-2">🎉✨💜</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script para el menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Cerrar menú móvil al hacer clic en un enlace
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Script para cambiar el estado 'active' en la navegación
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Script para el confeti
+            const confettiCanvas = document.getElementById('confetti-canvas');
+            const myConfetti = confetti.create(confettiCanvas, {
+                resize: true,
+                useWorker: true
+            });
+
+            function launchConfetti() {
+                myConfetti({
+                    particleCount: 150,
+                    spread: 180,
+                    origin: { y: 0.6 },
+                    colors: ['#a855f7', '#c084fc', '#d8b4fe', '#f3f4f6', '#4b5563']
+                });
+            }
+
+            // Lanzar confeti al cargar la página
+            setTimeout(launchConfetti, 500);
+
+            // Estilo del header al hacer scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'py-2');
+                    header.classList.remove('py-3');
+                } else {
+                    header.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'py-2');
+                    header.classList.add('py-3');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
