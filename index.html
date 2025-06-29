@@ -92,11 +92,7 @@
 
     <!-- Sección Hero -->
     <main class="pt-20">
-        <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
-            <div class="absolute inset-0 bg-gray-900 opacity-60 z-10"></div>
-            <div class="absolute inset-0 z-0">
-                <img src="https://i.pinimg.com/originals/7e/c9/a1/7ec9a11a7f0e9b9d3e6a7b736b7c00c7.jpg" alt="Foto de Jungkook de BTS guiñando un ojo" class="w-full h-full object-cover object-center">
-            </div>
+        <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900">
             <div class="relative z-20 container mx-auto px-6">
                 <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-wider text-glow">
                     El <span class="text-purple-400">Not Cumple</span> de Cami
@@ -118,14 +114,14 @@
                         </div>
                         <h3 class="text-2xl font-semibold text-white mb-2">Fecha y Hora</h3>
                         <p class="text-purple-300 font-bold">Sábado, 12 de Julio</p>
-                        <p>A partir de las 4:00 PM</p>
+                        <p>A partir de las 16:30 HRS</p>
                     </div>
                     <div class="card p-8 rounded-2xl">
                         <div class="icon-bg w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
                         <h3 class="text-2xl font-semibold text-white mb-2">Ubicación</h3>
-                        <p class="text-purple-300 font-bold">Terraza - Juan de Aliaga 559</p>
+                        <p class="text-purple-300 font-bold">Terraza - Avenida Juan de Aliaga 559</p>
                         <p>Magdalena del Mar</p>
                     </div>
                     <div class="card p-8 rounded-2xl">
@@ -218,7 +214,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Changed from DOMContentLoaded to load to ensure all resources are available
+        window.addEventListener('load', () => {
             // Script para el menú móvil
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -256,23 +253,30 @@
             
             // Script para el confeti
             const confettiCanvas = document.getElementById('confetti-canvas');
-            const myConfetti = confetti.create(confettiCanvas, {
-                resize: true,
-                useWorker: true
-            });
-
-            function launchConfetti() {
-                myConfetti({
-                    particleCount: 150,
-                    spread: 180,
-                    origin: { y: Math.random() }, // Lanza confeti desde alturas aleatorias
-                    colors: ['#a855f7', '#c084fc', '#d8b4fe', '#f3f4f6', '#4b5563']
+            
+            // Added a check to ensure canvas element exists before creating confetti instance
+            if (confettiCanvas) {
+                const myConfetti = confetti.create(confettiCanvas, {
+                    resize: true,
+                    useWorker: false // Disabled worker, which can cause issues in sandboxed/iframe environments
                 });
+
+                function launchConfetti() {
+                    myConfetti({
+                        particleCount: 150,
+                        spread: 180,
+                        origin: { y: Math.random() }, // Lanza confeti desde alturas aleatorias
+                        colors: ['#a855f7', '#c084fc', '#d8b4fe', '#f3f4f6', '#4b5563']
+                    });
+                }
+
+                // Lanzar confeti al cargar la página y luego cada 3 segundos
+                setTimeout(launchConfetti, 500);
+                setInterval(launchConfetti, 3000);
+            } else {
+                console.error('Confetti canvas element not found.');
             }
 
-            // Lanzar confeti al cargar la página y luego cada 3 segundos
-            setTimeout(launchConfetti, 500);
-            setInterval(launchConfetti, 3000);
 
             // Estilo del header al hacer scroll
             const header = document.getElementById('header');
