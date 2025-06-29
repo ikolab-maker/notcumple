@@ -71,7 +71,7 @@
                 <a href="#sabores" class="nav-item">Sabores</a>
                 <a href="#juegos" class="nav-item">¡A Jugar!</a>
             </nav>
-            <a href="https://wa.me/?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="hidden md:inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 hover:scale-105">
+            <a href="https://wa.me/51987207878?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="hidden md:inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 hover:scale-105">
                 Confirmar Asistencia
             </a>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -84,7 +84,7 @@
             <a href="#vibe" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">El Vibe</a>
             <a href="#sabores" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">Sabores</a>
             <a href="#juegos" class="block text-center py-2 px-4 text-sm hover:bg-gray-800">¡A Jugar!</a>
-            <a href="https://wa.me/?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="block text-center bg-purple-600 text-white font-bold py-3 mt-2">
+            <a href="https://wa.me/51987207878?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Not%20Cumple%20de%20Cami.%20¡Nos%20vemos%20ahí!%20🎉" target="_blank" class="block text-center bg-purple-600 text-white font-bold py-3 mt-2">
                 Confirmar Asistencia
             </a>
         </div>
@@ -93,10 +93,9 @@
     <!-- Sección Hero -->
     <main class="pt-20">
         <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
-            <div class="absolute inset-0 bg-gray-900 opacity-50 z-10"></div>
+            <div class="absolute inset-0 bg-gray-900 opacity-60 z-10"></div>
             <div class="absolute inset-0 z-0">
-                 <!-- Imagen de fondo temática. Placeholder de un artista K-Pop. Reemplazar si se desea. -->
-                <img src="https://placehold.co/1920x1080/111827/333333?text=K-POP+VIBE" alt="Fondo K-Pop" class="w-full h-full object-cover object-center animate-pulse-slow">
+                <img src="https://i.pinimg.com/originals/7e/c9/a1/7ec9a11a7f0e9b9d3e6a7b736b7c00c7.jpg" alt="Foto de Jungkook de BTS guiñando un ojo" class="w-full h-full object-cover object-center">
             </div>
             <div class="relative z-20 container mx-auto px-6">
                 <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-wider text-glow">
@@ -266,13 +265,14 @@
                 myConfetti({
                     particleCount: 150,
                     spread: 180,
-                    origin: { y: 0.6 },
+                    origin: { y: Math.random() }, // Lanza confeti desde alturas aleatorias
                     colors: ['#a855f7', '#c084fc', '#d8b4fe', '#f3f4f6', '#4b5563']
                 });
             }
 
-            // Lanzar confeti al cargar la página
+            // Lanzar confeti al cargar la página y luego cada 3 segundos
             setTimeout(launchConfetti, 500);
+            setInterval(launchConfetti, 3000);
 
             // Estilo del header al hacer scroll
             const header = document.getElementById('header');
