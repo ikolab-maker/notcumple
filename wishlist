@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Regalos para Cami 🎁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Fondo oscuro principal */
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(192, 132, 252, 0.6), 0 0 20px rgba(192, 132, 252, 0.4);
+        }
+        .card {
+            background-color: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(167, 139, 250, 0.1);
+        }
+        .gift-item {
+            background-color: rgba(55, 65, 81, 0.3);
+            border-left: 4px solid #a855f7;
+            transition: background-color 0.3s ease;
+        }
+        .gift-item:hover {
+            background-color: rgba(55, 65, 81, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Lista de Regalos <span class="text-purple-400">para Cami</span></h1>
+            <a href="https://notcumple.vercel.app/" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 hover:scale-105">
+                Volver a la Invitación
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="py-12">
+        <div class="container mx-auto px-6">
+            
+            <!-- Mensaje Introductorio -->
+            <div class="text-center mb-12">
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">¡Hola! Si estás buscando ideas, aquí Cami ha preparado una lista de deseos. ¡Cualquier detalle será recibido con una sonrisa gigante! 💜</p>
+            </div>
+
+            <!-- Grid de Regalos -->
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                <!-- Categoría: Art Toys & Collectibles -->
+                <div class="card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-purple-400 mb-6">Art Toys & Collectibles</h2>
+                    <div class="space-y-4">
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">LABUBU (Art Toy)</h3>
+                            <p class="text-sm text-gray-400">Cualquier serie es bienvenida.</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Funko Pop de Jungkook</h3>
+                            <p class="text-sm text-gray-400">El muñeco cabezón de su idol favorito.</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Photocards de Jungkook</h3>
+                            <p class="text-sm text-gray-400">Tarjetas coleccionables de fotos.</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Figuras de BTS</h3>
+                            <p class="text-sm text-gray-400">Set de 7 estatuas (BT21 o los miembros).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría: Moda & Merch Oficial -->
+                <div class="card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-purple-400 mb-6">Moda & Merch Oficial</h2>
+                    <div class="space-y-4">
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Lightstick de BTS</h3>
+                            <p class="text-sm text-gray-400">La vara de luz oficial del grupo (ARMY Bomb).</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Polera "Seven" de Jungkook</h3>
+                            <p class="text-sm text-gray-400">Polera negra del álbum "Seven".</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Ropa estilo Y2K</h3>
+                            <p class="text-sm text-gray-400">Polos oversize (Talla 16)</p>
+                            <p class="text-sm text-gray-400">Pantalones anchos con bolsillos (Talla 14)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría: Peluches & Juguetes -->
+                <div class="card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-purple-400 mb-6">Peluches & Juguetes</h2>
+                    <div class="space-y-4">
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Ternurines</h3>
+                            <p class="text-sm text-gray-400">También conocidos como Sylvanian Families.</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Peluche Humano de Jungkook</h3>
+                            <p class="text-sm text-gray-400">Con ropa de su personaje de BT21 (Cooky).</p>
+                        </div>
+                        <div class="gift-item p-4 rounded-lg">
+                            <h3 class="font-semibold text-white">Cajita Sorpresa de Stitch</h3>
+                            <p class="text-sm text-gray-400">Cualquier caja con temática de Stitch.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-lg font-bold text-white">¡Gracias por ser parte de la celebración de Cami!</p>
+            <p class="text-purple-400 mt-2">🎁✨💜</p>
+        </div>
+    </footer>
+
+</body>
+</html>
